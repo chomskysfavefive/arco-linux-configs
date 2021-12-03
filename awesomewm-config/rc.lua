@@ -120,7 +120,7 @@ local browser2          = "firefox"
 local browser3          = "chromium -no-default-browser-check"
 local editor            = os.getenv("emacs") or "vim"
 local editorgui         = "emacs"
-local filemanager       = "thunar"
+local filemanager       = "nemo"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
 local terminal          = "kitty"
@@ -358,7 +358,7 @@ globalkeys = my_table.join(
         {description = "run gui editor", group = "super"}),
     awful.key({ modkey }, "h", function () awful.util.spawn( "kitty bpytop" ) end,
         {description = "pretty task manager", group = "super"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -display-run == " ) end,
+    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -display-run '' " ) end,
         {description = "rofi launcher", group = "super"}),
     awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
         {description = "terminal", group = "super"}),
@@ -426,7 +426,7 @@ globalkeys = my_table.join(
         {description = "Pamac Manager", group = "alt+ctrl"}),
 
     -- alt + ...
-    awful.key({ altkey, "Shift"   }, "t", function () awful.spawn.with_shell( "variety -t  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
+    awful.key({ altkey, "Shift"   }, "b", function () awful.spawn.with_shell( "bluetoothctl connect BC:D6:44:C8:CF:B0" ) end,
         {description = "Pywal Wallpaper trash", group = "altkey"}),
     awful.key({ altkey, "Shift"   }, "n", function () awful.spawn.with_shell( "variety -n  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
         {description = "Pywal Wallpaper next", group = "altkey"}),
@@ -1161,4 +1161,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
--- awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("bluetoothctl connect BC:D6:44:C8:CF:B0")
+awful.spawn.with_shell("xrandr --output HDMI-1 --primary --above eDP-1")
+awful.spawn.with_shell("exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
