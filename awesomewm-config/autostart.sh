@@ -16,7 +16,7 @@ run pamac-tray
 #run variety
 run xfce4-power-manager
 run blueberry-tray
-run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run numlockx on
 run volumeicon
 #run conky -c $HOME/.config/awesome/system-overview
