@@ -30,13 +30,12 @@ echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 #                ALIASES                   #
 ############################################
 
-alias pkg-update="sudo dnf update && flatpak update && snap refresh && zap update && sudo npm update -g && brew update"
+alias pkg-update="sudo dnf update && flatpak update && snap refresh && zap upgrade && sudo npm update -g && brew update"
 alias pkg-install="sudo dnf install"
 alias pkg-get="sudo dnf install"
 alias pkg-remove="sudo dnf remove"
 alias pkg-search="sudo dnf search"
 alias npm="sudo npm"
-
 
 
  ################################################################################
@@ -384,7 +383,6 @@ unset bash_prompt
 
 
 ### EOF ###
-
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
